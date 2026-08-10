@@ -1,0 +1,19 @@
+# editor artifacts
+*.swp
+*.swo
+*~
+.DS_Store
+
+# build artifacts
+*.o
+*.d
+
+# machine-specific and secrets — never commit
+.bashrc.local
+*.local
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+.env
+credentials
