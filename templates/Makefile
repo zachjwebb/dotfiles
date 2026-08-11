@@ -20,7 +20,9 @@ $(TARGET): $(OBJS)
 
 debug: CFLAGS += -fsanitize=address,undefined -fno-omit-frame-pointer
 debug: LDFLAGS += -fsanitize=address,undefined
-debug: clean $(TARGET)
+debug:
+	$(MAKE) clean
+	$(MAKE) $(TARGET) CFLAGS="$(CFLAGS) -fsanitize=address,undefined -fno-omit-frame-pointer" LDFLAGS="$(LDFLAGS) -fsanitize=address,undefined"
 
 valgrind: $(TARGET)
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(TARGET)
